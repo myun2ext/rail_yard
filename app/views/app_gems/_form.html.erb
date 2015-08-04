@@ -1,0 +1,25 @@
+<%= form_for(@app_gem) do |f| %>
+  <% if @app_gem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_gem.errors.count, "error") %> prohibited this app_gem from being saved:</h2>
+
+      <ul>
+      <% @app_gem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br>
+    <%= f.text_field :version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
