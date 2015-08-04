@@ -1,3 +1,3 @@
 class AppModel < ActiveRecord::Base
-  validates :name, uniqueness: { message: ": Duplicated model." }
+  validates :name, uniqueness: { message: ": Duplicated model." }, presence: true
 end

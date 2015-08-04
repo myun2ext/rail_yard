@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804042302) do
+ActiveRecord::Schema.define(version: 20150804043439) do
 
   create_table "app_gems", force: :cascade do |t|
     t.string   "name",       null: false
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20150804042302) do
   end
 
   add_index "app_gems", ["name"], name: "index_app_gems_on_name", unique: true
+
+  create_table "app_model_columns", force: :cascade do |t|
+    t.integer  "app_model_id"
+    t.string   "name",                         null: false
+    t.string   "type",                         null: false
+    t.boolean  "allow_nil",    default: false, null: false
+    t.boolean  "unique",       default: false, null: false
+    t.boolean  "index",        default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "app_model_columns", ["app_model_id"], name: "index_app_model_columns_on_app_model_id"
 
   create_table "app_models", force: :cascade do |t|
     t.string   "name",       null: false

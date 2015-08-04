@@ -1,0 +1,2 @@
+module AppModelColumnsHelper
+end

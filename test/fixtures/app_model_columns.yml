@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app_model_id: 
+  name: MyString
+  type: 
+  allow_nil: false
+  unique: false
+  index: false
+
+two:
+  app_model_id: 
+  name: MyString
+  type: 
+  allow_nil: false
+  unique: false
+  index: false

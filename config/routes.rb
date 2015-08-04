@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :app_model_columns
   resources :app_models
   resources :app_gems
   # The priority is based upon order of creation: first created -> highest priority.
