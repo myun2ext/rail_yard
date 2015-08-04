@@ -1,3 +1,4 @@
+<% require 'active_record/connection_adapters/abstract_mysql_adapter' %>
 <%= form_for(@app_model_column) do |f| %>
   <% if @app_model_column.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +22,8 @@
   </div>
   <div class="field">
     <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.collection_select :type,
+      ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter::NATIVE_DATABASE_TYPES, :first, :first %>
   </div>
   <div class="field">
     <%= f.label :allow_nil %><br>
