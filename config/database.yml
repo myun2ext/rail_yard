@@ -1,32 +1,18 @@
-# MySQL.  Versions 5.0+ are recommended.
-#
-# Install the MYSQL driver
-#   gem install mysql2
-#
-# Ensure the MySQL gem is defined in your Gemfile
-#   gem 'mysql2'
-#
-# And be sure to use new-style password hashing:
-#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-#
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: sqlite3
   pool: 5
-  username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  timeout: 5000
 
 development:
   <<: *default
-  database: rail_yard_development
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rail_yard_test
+  database: db/test.sqlite3
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,7 +34,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: rail_yard_production
-  username: rail_yard
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  socket: /var/lib/mysql/mysql.sock
+  database: railyard
+  username: railyard
   password: <%= ENV['RAIL_YARD_DATABASE_PASSWORD'] %>
